@@ -1,0 +1,88 @@
+        :root {
+            --btn-font-size: 1rem;
+            --btn-padding: 10px 20px;
+            --btn-border-radius: 50px;
+            --card-border-radius: 15px;
+            --card-padding: 20px;
+            --card-margin-bottom: 20px;
+            --input-border-radius: 15px;
+            --input-padding: 10px;
+            --input-background: #f3f0ff;
+            --input-border-color: #a1c4fd;
+        }
+
+        /* Read More Button */
+        .btn-read-more {
+            background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+            color: #333;
+            border: none;
+            border-radius: var(--btn-border-radius);
+            padding: var(--btn-padding);
+            font-size: var(--btn-font-size);
+            transition: all 0.3s ease;
+        }
+        .btn-read-more:hover {
+            background: linear-gradient(45deg, #c2e9fb, #a1c4fd);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Delete Button */
+        .btn-delete {
+            background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+            color: #333;
+            border: none;
+            border-radius: var(--btn-border-radius);
+            padding: var(--btn-padding);
+            font-size: var(--btn-font-size);
+            transition: all 0.3s ease;
+        }
+        .btn-delete:hover {
+            background: linear-gradient(45deg, #a6c1ee, #fbc2eb);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Styling */
+        .card {
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            margin-bottom: var(--card-margin-bottom);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .card-header {
+            background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+            color: #333;
+            border-top-left-radius: var(--card-border-radius);
+            border-top-right-radius: var(--card-border-radius);
+            padding: 10px 20px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Form Styling */
+        .form-container {
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            margin-bottom: var(--card-margin-bottom);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .form-control {
+            border-radius: var(--input-border-radius);
+            padding: var(--input-padding);
+            background: var(--input-background);
+            border: 1px solid var(--input-border-color);
+        }
+        .form-control:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+        .form-heading {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: #6a11cb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
