@@ -111,7 +111,15 @@ def update_post(id):
     
 
 
-
+@app.route('/del_post/<int:id>', methods=['GET', 'POST'])
+def del_post(id):
+    conn,c = conn_w_db()
+    if request.method == "POST":
+        c.execute("DELETE FROM posts_table WHERE id = ?", (id,))
+        commit_close(conn)
+        return redirect(url_for('home'))
+    else:
+        return "some other issue!!!"
 
 
 
