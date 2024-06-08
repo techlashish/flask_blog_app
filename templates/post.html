@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    
+   
+        <div class="card">
+            <div class="card-header">
+                {{ post[1] }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <span>Posted on {{ post[3] }}</span>
+                </p>
+                <p class="card-text">{{ post[2] }}</p>          
+                <div class="d-flex ">
+                <a href="{{ url_for('update_post', id=post[0]) }}" class="btn btn-primary btn-sm btn-read-more">Update</a>
+                <form method="POST" action="{{ url_for('read_del', id=post[0]) }}">
+                    <button type="submit" class="btn btn-danger btn-delete btn-sm">Delete</button>
+                </form>
+            </div>        
+            </div>
+        </div>
+   
+    
+</div>
+
+{% endblock content %}

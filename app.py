@@ -40,6 +40,13 @@ posts =  [
 ]
 
 
+@app.route('/')
+def home():
+    conn, c = conn_w_db()
+    c.execute("SELECT * FROM posts_table ORDER BY id DESC")
+    posts = c.fetchall()
+    return render_template("home.html", posts=posts)
+
 
 
 #  insert into db
@@ -71,30 +78,37 @@ def add_post():
 
 @app.route("/read_del/<int:id>", methods=['GET', 'POST'])
 def read_del(id):
-    return ""
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-@app.route('/')
-def home():
     conn, c = conn_w_db()
-    c.execute("SELECT * FROM posts_table ORDER BY id DESC")
-    posts = c.fetchall()
-    return render_template("home.html", posts=posts)
+    if request.method == "GET":
+        c.execute("SELECT * FROM posts_table WHERE id = ?", (id,))
+        post = c.fetchone()
+        commit_close(conn)
+        return render_template('post.html', post=post)
+    elif request.method == "POST":
+        post_title = request.form['post_title']
+        post_content = request.form['post_content']
+        c.execute("SELECT * FROM posts_table WHERE id = ?", (id,))
+        c.fetchone()
+        commit_close(conn)
+        return redirect(url_for('home'))
+    
 
 
-
-
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update_post(id):
+    conn,c  = conn_w_db()
+    if request.method == "GET":
+        c.execute("SELECT * FROM posts_table WHERE id = ?", (id,))
+        post = c.fetchone()
+        commit_close(conn)
+        return render_template("update.html", post=post)
+    elif request.method == "POST":
+        post_title = request.form['post_title']
+        post_content = request.form['post_content']
+        c.execute("UPDATE posts_table SET (title, post) = (?,?) WHERE id = ?", (post_title, post_content, id))
+        commit_close(conn)
+        return redirect(url_for('home'))
+    
 
 
 
