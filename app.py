@@ -19,7 +19,7 @@ def commit_close(conn):
 
 def post_table():
     conn, c = conn_w_db()
-    c.execute("""CREATE TABLE IF NOT EXISTS posts_table(
+    c.execute("""CREATE TABLE IF NOT EXISTS posts_table
               id INTEGER PRIMARY KEY AUTOINCREMENT,
               title TEXT NOT NULL,
               post TEXT NOT NULL,
